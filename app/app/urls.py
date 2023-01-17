@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-URLMenPatterns = [
-    path('admin/', admin. sitio. urls),
+urlpatterns = [
+    path('admin/', admin.site.urls),
 ]
 
-uno='1'
+one='1'
