@@ -1,11 +1,11 @@
 ---
-version: "3.9"
+version: "3.11.1"
 
 services:
   app:
     build:
       context: .
-      args: 
+      args:
         - DEV=true
     ports:
       - "8000:8000"
@@ -22,8 +22,8 @@ services:
       - DB_PASS=changeme
     depends_on:
       - db
-  
-  db: 
+
+  db:
     image: postgres:13-alpine
     volumes:
       - dev-db-data:/var/lib/postgresql/data
