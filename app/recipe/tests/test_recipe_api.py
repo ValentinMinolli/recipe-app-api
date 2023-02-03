@@ -52,7 +52,6 @@ class PublicRecipeApiTests(TestCase):
     def setUp(self):
         self.client = APIClient()
 
-
     def test_auth_required(self):
         """Test auth is required to call API."""
         res = self.client.get(RECIPE_URL)
@@ -68,7 +67,6 @@ class PrivateRecipeApiTests(TestCase):
         self.user = create_user(email='user@example.com', password='test123')
         self.client.force_authenticate(self.user)
 
-
     def test_retrieve_recipe(self):
         """Test retrieving a list of recipes."""
         create_recipe(user=self.user)
@@ -80,7 +78,6 @@ class PrivateRecipeApiTests(TestCase):
         serializer = RecipeSerializer(recipes, many=True)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
-
 
     def test_recipe_list_limited_to_user(self):
         """Test list of recipes is limited to authenticades user."""
@@ -95,7 +92,6 @@ class PrivateRecipeApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 
-
     def test_get_recipe_detail(self):
         """Test get recipe detail."""
         recipe = create_recipe(user=self.user)
@@ -105,7 +101,6 @@ class PrivateRecipeApiTests(TestCase):
 
         serializer = RecipeDetailSerializer(recipe)
         self.assertEqual(res.data, serializer.data)
-
 
     def test_create_recipe(self):
         """Test creating a recipe."""
@@ -121,7 +116,6 @@ class PrivateRecipeApiTests(TestCase):
         for k, v in payload.items():
             self.assertEqual(getattr(recipe, k), v)
         self.assertEqual(recipe.user, self.user)
-
 
     def test_partial_update(self):
         """Test partial update of the recipe."""
@@ -141,7 +135,6 @@ class PrivateRecipeApiTests(TestCase):
         self.assertEqual(recipe.title, payload['title'])
         self.assertEqual(recipe.link, original_link)
         self.assertEqual(recipe.user, self.user)
-
 
     def test_full_update(self):
         """Test full update of recipe."""
@@ -168,7 +161,6 @@ class PrivateRecipeApiTests(TestCase):
             self.assertEqual(getattr(recipe, k), v)
         self.assertEqual(recipe.user, self.user)
 
-
     def test_update_user_returns_error(self):
         """Test changing the recipe user results in an error."""
         new_user = create_user(email='user2@example.com', password='test123')
@@ -181,7 +173,6 @@ class PrivateRecipeApiTests(TestCase):
         recipe.refresh_from_db()
         self.assertEqual(recipe.user, self.user)
 
-
     def test_delete_recipe(self):
         """Test deleting a recipe successful."""
         recipe = create_recipe(user=self.user)
@@ -191,7 +182,6 @@ class PrivateRecipeApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Recipe.objects.filter(id=recipe.id).exists())
-
 
     def test_delete_other_users_recipe_error(self):
         """Test trying to delete another users recipe gives error."""
