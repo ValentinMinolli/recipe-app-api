@@ -322,7 +322,7 @@ class PrivateRecipeApiTests(TestCase):
             'title': 'Vietnamese Soup',
             'time_minutes': 25,
             'price': Decimal('2.55'),
-            'ingredients':[{'name': 'Lemon'}, {'name':'Fish Sauce'}],
+            'ingredients': [{'name': 'Lemon'}, {'name': 'Fish Sauce'}],
         }
         res = self.client.post(RECIPE_URL, payload, format='json')
 
@@ -378,7 +378,7 @@ class PrivateRecipeApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(recipe.ingredients.count(), 0)
-        
+
 
 class ImageUploadTests(TestCase):
     """Tests for the image upload API."""
@@ -394,7 +394,7 @@ class ImageUploadTests(TestCase):
 
     def tearDown(self):
         self.recipe.image.delete()
-    
+
     def test_upload_image(self):
         """Test uploading an image to a recipe."""
         url = image_upload_url(self.recipe.id)
@@ -404,7 +404,7 @@ class ImageUploadTests(TestCase):
             image_file.seek(0)
             payload = {'image': image_file}
             res = self.client.post(url, payload, format='multipart')
-        
+ 
         self.recipe.refresh_from_db()
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIn('image', res.data)
@@ -417,4 +417,3 @@ class ImageUploadTests(TestCase):
         res = self.client.post(url, payload, format='multipart')
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
-        

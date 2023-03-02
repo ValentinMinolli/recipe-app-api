@@ -50,7 +50,7 @@ class RecipeSerializer(serializers.ModelSerializer):
                 **tag
             )
             recipe.tags.add(tag_obj)
-    
+
     def _get_or_create_ingredient(self, ingredients, recipe):
         """Handle getting or creating ingredients as needed."""
         auth_user = self.context['request'].user
@@ -103,4 +103,4 @@ class RecipeImageSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = ['id', 'image']
         read_only_fields = ['id']
-        extra_kargs = {'image': {'required':'True'}}
+        extra_kargs = {'image': {'required': 'True'}}
