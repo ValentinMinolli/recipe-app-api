@@ -33,11 +33,17 @@ python manage.py runserver
 ```
 The API will be available at http://localhost:8000.
 
-## API documentation.
-The API documentation is available at http://localhost:8000/api/docs/. Here, you can find examples of how to use the different endpoints of the API.
+## API Documentation. 
+You cant test the API using the following URL: http://ec2-3-82-93-203.compute-1.amazonaws.com/api/docs/
+To get started with the project, simply access the URL above in your web browser. This will take you to the API documentation, which allows you to explore the different endpoints and test them out.
+
+## Usage.
+Once you are on the API documentation page, you can use the interface to try out different API requests. You can select the endpoint you want to test, fill in the required parameters, and submit the request.
+
+The API will respond with the data you requested, or an error message if there was a problem with your request.
 
 ## Authentication.
-To use endpoints protected by authentication, it is necessary to include an authentication token in the HTTP requests. The token can be obtained through the API authentication endpoint (http://localhost:8000/api/token/), using the credentials of a user registered in the system.
+To use endpoints protected by authentication, it is necessary to include an authentication token in the HTTP requests. The token can be obtained through the API authentication endpoint (http://ec2-3-82-93-203.compute-1.amazonaws.com/api/docs/#/user/user_token_create), using the credentials of a user registered in the system.
 
 To include the token in HTTP requests, the Authorization header should be used, with the value Token <token> (where <token> is the value of the token obtained in the previous step).
 
