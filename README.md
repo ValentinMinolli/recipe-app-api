@@ -2,32 +2,35 @@
 This is a recipe API created with Django and Django REST framework. The API allows users to create, read, update, and delete (CRUD) recipes, as well as perform searches and filter recipes based on different criteria.
 
 ## Features.
-Create, read, update, and delete recipes.
-Search and filter recipes by name and tags.
-User authentication using Token Authentication.
-Manage tags and ingredients.
+* Create, read, update, and delete recipes.
+* Search and filter recipes by name and tags.
+* User authentication using Token Authentication.
+* Manage tags and ingredients.
 
 ## Project setup.
-Clone the repository:
-bash
-Copy code
+1- Clone the repository:
+```
 git clone https://github.com/ValentinMinolli/recipe-app-api.git
-Create a virtual environment and install dependencies:
-bash
-Copy code
+```
+2- Create a virtual environment and install dependencies:
+```
 cd recipe-app-api
 python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
-Create a database and run migrations:
-Copy code
+```
+3- Create a database and run migrations:
+```
 python manage.py migrate
-Create a superuser:
-Copy code
+```
+4- Create a superuser:
+```
 python manage.py createsuperuser
-Run the development server:
-Copy code
+```
+5- Run the development server:
+```
 python manage.py runserver
+```
 The API will be available at http://localhost:8000.
 
 ## API documentation.
