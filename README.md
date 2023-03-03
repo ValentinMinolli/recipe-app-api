@@ -1,7 +1,7 @@
-Recipe App API
+#Recipe App API
 This is a recipe API created with Django and Django REST framework. The API allows users to create, read, update, and delete (CRUD) recipes, as well as perform searches and filter recipes based on different criteria.
 
-Features
+##Features
 Create, read, update, and delete recipes.
 Search and filter recipes by name and tags.
 User authentication using Token Authentication.
