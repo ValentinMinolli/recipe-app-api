@@ -45,7 +45,7 @@ The API will respond with the data you requested, or an error message if there w
 ## Authentication.
 To use endpoints protected by authentication, it is necessary to include an authentication token in the HTTP requests. The token can be obtained through the API authentication endpoint (http://ec2-3-82-93-203.compute-1.amazonaws.com/api/docs/#/user/user_token_create), using the credentials of a user registered in the system.
 
-To include the token in HTTP requests, the Authorization header should be used, with the value Token <token> (where <token> is the value of the token obtained in the previous step).
+To include the token in HTTP requests, the Authorization header should be used, with the value Token < token > (where < token > is the value of the token obtained in the previous step).
 
 ## License.
 This project is licensed under the MIT license - see the LICENSE file for details.
